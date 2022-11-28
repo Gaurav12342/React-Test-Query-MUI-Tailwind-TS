@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Bebas+Neue&family=Roboto+Slab:wght@300;400&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,900;1,300&display=swap');
 
 body {
   margin: 0;
