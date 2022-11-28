@@ -19,7 +19,9 @@ const Login: FC = () => {
     }
 
     const handleSubmit = () => {
-        if (!userData?.email) {
+        if (!userData?.password && !userData?.email) {
+            setUserData({ ...userData, isEmail: true, isPassword: true })
+        } else if (!userData?.email) {
             setUserData({ ...userData, isEmail: true })
         } else if (!userData?.password) {
             setUserData({ ...userData, isPassword: true })

@@ -6,6 +6,7 @@ import {
     TextField,
     FormControl,
     InputLabel,
+    Typography
 } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
@@ -34,40 +35,49 @@ const Login: FC<ILogin> = ({
                         </div>
 
                         <div className="space-y-6 flex-col ml-5 mr-16 md:mx-8 md:ml-3">
-                            <TextField
-                                fullWidth
-                                name="email"
-                                onChange={handleChange}
-                                id="email"
-                                label="Email"
-                                variant="outlined"
-                                helperText={userData?.isEmail ? "Incorrect entry." : ""}
-                                error={userData?.isEmail}
-                            />
-
-                            <FormControl fullWidth variant="outlined" error >
-                                <InputLabel htmlFor="outlined-adornment-password">
-                                    Password
-                                </InputLabel>
-                                <OutlinedInput
-                                    name="password"
-                                    id="standard-adornment-password"
-                                    type={showPassword ? 'text' : 'password'}
+                            <div>
+                                <TextField
+                                    fullWidth
+                                    name="email"
                                     onChange={handleChange}
-                                    endAdornment={
-                                        <InputAdornment position="end">
-                                            <IconButton
-                                                aria-label="toggle password visibility"
-                                                onClick={handleClickShowPassword}
-                                            >
-                                                {showPassword ? <VisibilityOff /> : <Visibility />}
-                                            </IconButton>
-                                        </InputAdornment>
-                                    }
-                                    label="Password"
-
+                                    id="email"
+                                    label="Email"
+                                    variant="outlined"
+                                    error={userData?.isEmail}
                                 />
-                            </FormControl>
+
+                                <Typography className='text-red-600' variant="caption" display="block">
+                                    {userData?.isEmail ? "Please enter the email address." : ""}
+                                </Typography>
+                            </div>
+                            <div>
+                                <FormControl fullWidth variant="outlined" error={userData?.isPassword} >
+                                    <InputLabel htmlFor="outlined-adornment-password">
+                                        Password
+                                    </InputLabel>
+                                    <OutlinedInput
+                                        name="password"
+                                        id="standard-adornment-password"
+                                        type={showPassword ? 'text' : 'password'}
+                                        onChange={handleChange}
+                                        endAdornment={
+                                            <InputAdornment position="end">
+                                                <IconButton
+                                                    aria-label="toggle password visibility"
+                                                    onClick={handleClickShowPassword}
+                                                    color={userData?.isPassword ? "error" : "default"}
+                                                >
+                                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        }
+                                        label="Password"
+                                    />
+                                </FormControl>
+                                <Typography className='text-red-600' variant="caption" display="block">
+                                    {userData?.isPassword ? "Please enter the password." : ""}
+                                </Typography>
+                            </div>
                         </div>
 
                         <div className="-ml-9 mr-4 mt-6 flex justify-center md:-ml-1">
