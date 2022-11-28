@@ -1,10 +1,16 @@
+import { FC } from 'react';
+import Router from './router';
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools'
 
-const App = () => {
+const App: FC = () => {
+  const queryClient = new QueryClient();
   return (
-    <div className="bg-stone-700">
-      <h1 className="text-3xl font-bold underline text-orange-700">
-        Hello world!
-      </h1>
+    <div data-testid="app">
+      <QueryClientProvider client={queryClient}>
+        <Router />
+        <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+      </QueryClientProvider>
     </div>
   );
 }
