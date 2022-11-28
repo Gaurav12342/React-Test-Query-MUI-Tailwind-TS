@@ -8,15 +8,24 @@ const Login: FC = () => {
 
     const [userData, setUserData] = useState<IForm>({
         email: "",
-        password: ""
+        password: "",
+        isEmail: false,
+        isPassword: false
     });
+
     const [showPassword, setShowPassword] = useState(false);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setUserData({ ...userData, [event.target.name]: event.target.value })
+        setUserData({ ...userData, isEmail: false, isPassword: false, [event.target.name]: event.target.value })
     }
 
     const handleSubmit = () => {
-        console.log("Dhanna pani", userData);
+        if (!userData?.email) {
+            setUserData({ ...userData, isEmail: true })
+        } else if (!userData?.password) {
+            setUserData({ ...userData, isPassword: true })
+        } else {
+            console.log("Dhanna pani", userData);
+        }
     }
 
     const handleNavigate = () => {
@@ -34,7 +43,8 @@ const Login: FC = () => {
                 handleChange={handleChange}
                 handleNavigate={handleNavigate}
                 handleClickShowPassword={handleClickShowPassword}
-                isLoading={false} />
+                isLoading={false}
+                userData={userData} />
         </div>
     )
 }

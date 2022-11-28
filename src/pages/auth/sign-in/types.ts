@@ -1,6 +1,8 @@
 export interface IForm {
     email: string;
     password: string;
+    isEmail?: boolean;
+    isPassword?: boolean;
 }
 
 export interface ILogin {
@@ -11,4 +13,5 @@ export interface ILogin {
     handleNavigate?: () => void;
     handleClickShowPassword?: () => void;
     isLoading?: boolean;
+    userData?: IForm;
 }

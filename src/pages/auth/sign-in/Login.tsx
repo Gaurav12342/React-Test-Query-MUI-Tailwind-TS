@@ -18,7 +18,8 @@ const Login: FC<ILogin> = ({
     handleSubmit,
     handleNavigate,
     handleClickShowPassword,
-    isLoading
+    isLoading,
+    userData
 }) => {
     return (
         <>
@@ -40,9 +41,11 @@ const Login: FC<ILogin> = ({
                                 id="email"
                                 label="Email"
                                 variant="outlined"
+                                helperText={userData?.isEmail ? "Incorrect entry." : ""}
+                                error={userData?.isEmail}
                             />
 
-                            <FormControl fullWidth variant="outlined">
+                            <FormControl fullWidth variant="outlined" error >
                                 <InputLabel htmlFor="outlined-adornment-password">
                                     Password
                                 </InputLabel>
@@ -62,6 +65,7 @@ const Login: FC<ILogin> = ({
                                         </InputAdornment>
                                     }
                                     label="Password"
+
                                 />
                             </FormControl>
                         </div>
