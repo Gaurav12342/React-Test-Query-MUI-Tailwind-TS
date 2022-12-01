@@ -2,7 +2,7 @@ import { screen, render } from '@testing-library/react';
 import Login from './Login';
 
 describe("Login Component", () => {
-    test.only("login form image", () => {
+    test("login form image", () => {
         render(<Login />);
         const imageElement = screen.getByAltText("desk-image");
         expect(imageElement).toBeInTheDocument();
@@ -26,7 +26,7 @@ describe("Login Component", () => {
         expect(passwordElement).toHaveAttribute("type", "text");
     })
 
-    test("Render Password input after click eye icon", () => {
+    test.skip("Render Password input after click eye icon", () => {
         render(<Login />);
         const renderpasswordAfterClickElement = screen.queryByRole("textbox");
         expect(renderpasswordAfterClickElement).not.toHaveAttribute("type", "password");
