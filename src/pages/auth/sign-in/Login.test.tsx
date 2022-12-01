@@ -8,9 +8,27 @@ describe("Login Component", () => {
         expect(imageElement).toBeInTheDocument();
     })
 
-    test("email label", () => {
+    test("Email input element", () => {
         render(<Login />);
-        const emailLabelElement = screen.getByText("Sign In");
-        expect(emailLabelElement).toBeInTheDocument();
+        const emailInputElement = screen.getByLabelText("Email", { selector: "input" });
+        expect(emailInputElement).toBeInTheDocument();
+    })
+
+    test("Password label element", () => {
+        render(<Login />);
+        const passwordInputElement = screen.getByLabelText("Password", { selector: "label" });
+        expect(passwordInputElement).toBeInTheDocument();
+    })
+
+    test("Render Password input element initiallay", () => {
+        render(<Login />);
+        const passwordElement = screen.getByRole("textbox");
+        expect(passwordElement).toHaveAttribute("type", "text");
+    })
+
+    test("Render Password input after click eye icon", () => {
+        render(<Login />);
+        const renderpasswordAfterClickElement = screen.queryByRole("textbox");
+        expect(renderpasswordAfterClickElement).not.toHaveAttribute("type", "password");
     })
 });

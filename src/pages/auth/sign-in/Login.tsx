@@ -51,11 +51,12 @@ const Login: FC<ILogin> = ({
                                 </Typography>
                             </div>
                             <div>
-                                <FormControl fullWidth variant="outlined" error={userData?.isPassword} >
-                                    <InputLabel htmlFor="outlined-adornment-password">
+                                <FormControl fullWidth aria-labelledby='password' variant="outlined" error={userData?.isPassword} >
+                                    <InputLabel id="password" aria-labelledby='password' htmlFor="outlined-adornment-password">
                                         Password
                                     </InputLabel>
                                     <OutlinedInput
+                                        aria-labelledby="password"
                                         name="password"
                                         id="standard-adornment-password"
                                         type={showPassword ? 'text' : 'password'}
