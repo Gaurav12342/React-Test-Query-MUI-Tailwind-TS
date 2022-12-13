@@ -4,7 +4,7 @@ import { routes } from "router/constants";
 import RegistrationComponent from "./Registration";
 
 const Registration: FC = () => {
-  const navigate = useNavigate();
+  const navigate: any = useNavigate();
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const handleClickShowPassword = () => {
@@ -12,7 +12,7 @@ const Registration: FC = () => {
   };
 
   const handleNavigate = () => {
-    navigate(routes.sign_in.path);
+    navigate("/sign-up");
   };
 
   return (

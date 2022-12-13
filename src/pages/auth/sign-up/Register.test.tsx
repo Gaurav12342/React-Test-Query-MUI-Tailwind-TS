@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Registration from ".";
+import Registration from "./Registration";
 
 describe("Registration test", () => {
   test("Registration form image", () => {
