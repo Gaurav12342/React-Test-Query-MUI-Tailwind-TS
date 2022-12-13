@@ -39,10 +39,4 @@ describe("Registration test cases", () => {
     });
     expect(userPasswordLabelElement).toBeInTheDocument();
   });
-
-  // test("User input password field initially", () => {
-  //   render(<Registration />);
-  //   const userInputPasswordElement = screen.getByRole("textbox");
-  //   expect(userInputPasswordElement).toHaveAttribute("type", "password");
-  // });
 });

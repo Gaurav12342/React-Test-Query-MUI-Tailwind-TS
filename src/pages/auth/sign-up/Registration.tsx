@@ -55,13 +55,14 @@ const Registration: FC<any> = ({
                 variant="outlined"
                 name="email"
               />
-              <FormControl fullWidth variant="outlined">
-                <InputLabel htmlFor="outlined-adornment-password">
+              <FormControl fullWidth aria-labelledby='password' variant="outlined">
+                <InputLabel htmlFor="outlined-adornment-password" aria-labelledby="password" id="password">
                   Password
                 </InputLabel>
                 <OutlinedInput
                   id="standard-adornment-password"
                   name="password"
+                  aria-labelledby="password"
                   type={showPassword ? "text" : "password"}
                   endAdornment={
                     <InputAdornment position="end">
