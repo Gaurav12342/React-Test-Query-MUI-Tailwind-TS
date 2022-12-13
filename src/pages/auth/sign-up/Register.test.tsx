@@ -39,4 +39,10 @@ describe("Registration test cases", () => {
     });
     expect(userPasswordLabelElement).toBeInTheDocument();
   });
+
+  test("Sign up button element", () => {
+    render(<Registration />);
+    const signUpButtonElement = screen.getByRole("button", { name: "Sign Up" });
+    expect(signUpButtonElement).toBeInTheDocument();
+  });
 });

@@ -88,6 +88,7 @@ const Registration: FC<any> = ({
 
             <div className="-ml-9 mr-4 my-4 mt-2 flex justify-center md:-ml-1">
               <a
+                aria-labelledby="sign-in"
                 className="font-robotSlabSerif text-sky-600 cursor-pointer"
                 onClick={handleNavigate}
               >
