@@ -12,7 +12,7 @@ const Registration: FC = () => {
   };
 
   const handleNavigate = () => {
-    navigate("/sign-up");
+    navigate(routes.sign_in.path);
   };
 
   return (

@@ -45,6 +45,7 @@ const Registration: FC<any> = ({
                 fullWidth
                 id="username"
                 label="Username"
+                name="username"
                 variant="outlined"
               />
               <TextField
@@ -52,6 +53,7 @@ const Registration: FC<any> = ({
                 id="email"
                 label="Email"
                 variant="outlined"
+                name="email"
               />
               <FormControl fullWidth variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-password">
@@ -59,6 +61,7 @@ const Registration: FC<any> = ({
                 </InputLabel>
                 <OutlinedInput
                   id="standard-adornment-password"
+                  name="password"
                   type={showPassword ? "text" : "password"}
                   endAdornment={
                     <InputAdornment position="end">
