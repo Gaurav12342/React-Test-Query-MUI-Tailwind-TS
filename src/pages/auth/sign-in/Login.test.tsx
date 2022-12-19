@@ -41,29 +41,25 @@ describe("Login Component", () => {
   });
 
   test("user form input initial value", async () => {
+    user.setup();
     const userData = {
       email: "",
       password: "",
     };
-    user.setup();
     render(<Login />);
-    const inputPasswordElement = screen.getByRole("textbox", {
-      name: "Password",
-    });
-
     const inputEmailElement = screen.getByRole("textbox", {
       name: "Email",
-      exact:false
     });
-
     expect(inputEmailElement).toHaveValue("");
-    expect(inputPasswordElement).toHaveValue(userData?.password);
+
+    const inputPasswordElement = screen.getByRole("textbox");
+    expect(inputPasswordElement).toHaveAttribute("type", "text");
+    expect(inputPasswordElement).toHaveValue("");
 
     const loginButtonElement = screen.getByRole("button", { name: "Sign In" });
-
     await user.click(loginButtonElement);
 
-    expect(inputEmailElement).toHaveValue("gaurav@test.com");
-    expect(inputPasswordElement).toHaveValue("gaurav");
+    expect(inputEmailElement).toHaveValue("");
+    expect(inputPasswordElement).toHaveValue("");
   });
 });
