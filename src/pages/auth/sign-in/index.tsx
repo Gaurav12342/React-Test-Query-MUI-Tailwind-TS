@@ -5,6 +5,7 @@ import { IForm } from "./types";
 import axios from "axios";
 import { useMutation } from "react-query";
 import { LOGIN_ROUTE } from "resources";
+import { routes } from "router/constants";
 
 const Login: FC = () => {
   const navigate = useNavigate();
@@ -22,10 +23,12 @@ const Login: FC = () => {
     return axios.post(LOGIN_ROUTE, obj);
   };
   const handleLoginSuccess = (res: any) => {
-    console.log("Login Res =>", res);
+    if (res?.status === 200) {
+      navigate(routes.home_page.path);
+    }
   };
 
-  const { mutate } = useMutation(handleAddUser, {
+  const { mutate, isLoading: isSignInLoader } = useMutation(handleAddUser, {
     onSuccess: handleLoginSuccess,
   });
 
@@ -66,7 +69,7 @@ const Login: FC = () => {
         handleChange={handleChange}
         handleNavigate={handleNavigate}
         handleClickShowPassword={handleClickShowPassword}
-        isLoading={false}
+        isLoading={isSignInLoader}
         userData={userData}
       />
     </div>
