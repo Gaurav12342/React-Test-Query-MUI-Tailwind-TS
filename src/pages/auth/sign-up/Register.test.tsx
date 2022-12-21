@@ -35,7 +35,7 @@ describe("Registration test cases", () => {
 
   test("User password label element", () => {
     render(<Registration />);
-    const userPasswordLabelElement = screen.getByLabelText("Password", {
+    const userPasswordLabelElement = screen.getByLabelText("password", {
       selector: "label",
     });
     expect(userPasswordLabelElement).toBeInTheDocument();
@@ -45,5 +45,26 @@ describe("Registration test cases", () => {
     render(<Registration />);
     const signUpButtonElement = screen.getByRole("button", { name: "Sign Up" });
     expect(signUpButtonElement).toBeInTheDocument();
+  });
+
+  test("Registration form initial value", () => {
+    render(<Registration />);
+    const usernameInputElement = screen.getByRole("textbox", {
+      name: "username",
+    });
+
+    const emailInputElement = screen.getByRole("textbox", {
+      name: "email",
+    });
+
+    expect(usernameInputElement).toHaveValue("");
+    expect(emailInputElement).toHaveValue("");
+
+    const inputPasswordElement = screen.getByLabelText("password", {
+      selector: "text",
+    });
+    // expect(inputPasswordElement).toHaveAttribute("type", "text");
+    expect(inputPasswordElement).toHaveValue("");
+    
   });
 });

@@ -44,7 +44,7 @@ const Registration: FC<any> = ({
               <TextField
                 fullWidth
                 id="username"
-                label="Username"
+                label="username"
                 name="username"
                 variant="outlined"
                 aria-labelledby="username"
@@ -52,7 +52,7 @@ const Registration: FC<any> = ({
               <TextField
                 fullWidth
                 id="email"
-                label="Email"
+                label="email"
                 variant="outlined"
                 name="email"
                 aria-labelledby="email"
@@ -63,31 +63,30 @@ const Registration: FC<any> = ({
                 variant="outlined"
               >
                 <InputLabel
-                  aria-label="password"
-                  htmlFor="outlined-adornment-password"
-                  aria-labelledby="password"
                   id="password"
+                  aria-label="password"
+                  aria-labelledby="password"
+                  htmlFor="outlined-adornment-password"
                 >
-                  Password
+                  password
                 </InputLabel>
                 <OutlinedInput
+                  aria-labelledby="password"
+                  name="password"
                   aria-label="password"
                   id="standard-adornment-password"
-                  name="password"
-                  aria-labelledby="password"
                   type={showPassword ? "text" : "password"}
+                  label="password"
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
                         aria-label="toggle password visibility"
                         onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
                       >
                         {showPassword ? <VisibilityOff /> : <Visibility />}
                       </IconButton>
                     </InputAdornment>
                   }
-                  label="Password"
                 />
               </FormControl>
             </div>

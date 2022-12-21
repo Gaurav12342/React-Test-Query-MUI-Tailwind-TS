@@ -83,10 +83,10 @@ describe("Login Component", () => {
       target: { value: "gaurav2@gmail.com" },
     });
     expect(inputEmailElement).toHaveValue("gaurav2@gmail.com");
-    
+
     fireEvent.change(inputPasswordElement, { target: { value: "123456" } });
     expect(inputPasswordElement).toHaveValue("123456");
-    
+
     const loginButtonElement = screen.getByRole("button", { name: "Sign In" });
     await user.click(loginButtonElement);
 
@@ -121,5 +121,26 @@ describe("Login Component", () => {
 
     user.clear(inputPasswordElement);
     expect(inputPasswordElement).toHaveTextContent(userData.password);
+  });
+
+  test("Sould be render in perfect order", async () => {
+    user.setup();
+    const userData = {
+      email: "",
+      password: "",
+    };
+
+    render(<Login />);
+    const inputEmailElement = screen.getByRole("textbox", {
+      name: "Email",
+    });
+    const inputPasswordElement = screen.getByRole("textbox");
+    const loginButtonElement = screen.getByRole("button", { name: "Sign In" });
+
+    expect(inputEmailElement).toHaveTextContent(userData.email);
+    expect(inputPasswordElement).toHaveTextContent(userData.password);
+
+    await user.tab();
+    expect(inputEmailElement).toHaveFocus();
   });
 });
