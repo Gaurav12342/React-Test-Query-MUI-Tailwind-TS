@@ -1,4 +1,4 @@
-import { screen, render } from "@testing-library/react";
+import { screen, render, fireEvent } from "@testing-library/react";
 import user from "@testing-library/user-event";
 import Login from "./Login";
 
@@ -61,5 +61,65 @@ describe("Login Component", () => {
 
     expect(inputEmailElement).toHaveValue(userData?.email);
     expect(inputPasswordElement).toHaveValue(userData?.password);
+  });
+
+  test("Handle form changes", async () => {
+    user.setup();
+    const userData = {
+      email: "",
+      password: "",
+    };
+    render(<Login />);
+    const inputEmailElement = screen.getByRole("textbox", {
+      name: "Email",
+    });
+    const inputPasswordElement = screen.getByRole("textbox");
+
+    expect(inputEmailElement).toHaveValue(userData?.email);
+    expect(inputPasswordElement).toHaveAttribute("type", "text");
+    expect(inputPasswordElement).toHaveValue(userData?.password);
+
+    fireEvent.change(inputEmailElement, {
+      target: { value: "gaurav2@gmail.com" },
+    });
+    expect(inputEmailElement).toHaveValue("gaurav2@gmail.com");
+    
+    fireEvent.change(inputPasswordElement, { target: { value: "123456" } });
+    expect(inputPasswordElement).toHaveValue("123456");
+    
+    const loginButtonElement = screen.getByRole("button", { name: "Sign In" });
+    await user.click(loginButtonElement);
+
+    user.clear(inputEmailElement);
+    expect(inputEmailElement).toHaveValue(userData.email);
+
+    user.clear(inputPasswordElement);
+    expect(inputPasswordElement).toHaveValue(userData.password);
+  });
+
+  test("Focus element in right order", async () => {
+    user.setup();
+    const userData = {
+      email: "",
+      password: "",
+    };
+
+    render(<Login />);
+    const inputEmailElement = screen.getByRole("textbox", {
+      name: "Email",
+    });
+    const inputPasswordElement = screen.getByRole("textbox");
+
+    expect(inputEmailElement).toHaveTextContent(userData.email);
+    expect(inputPasswordElement).toHaveTextContent(userData.password);
+
+    const loginButtonElement = screen.getByRole("button", { name: "Sign In" });
+    await user.click(loginButtonElement);
+
+    user.clear(inputEmailElement);
+    expect(inputEmailElement).toHaveTextContent(userData.email);
+
+    user.clear(inputPasswordElement);
+    expect(inputPasswordElement).toHaveTextContent(userData.password);
   });
 });
