@@ -47,6 +47,7 @@ const Registration: FC<any> = ({
                 label="Username"
                 name="username"
                 variant="outlined"
+                aria-labelledby="username"
               />
               <TextField
                 fullWidth
@@ -54,12 +55,23 @@ const Registration: FC<any> = ({
                 label="Email"
                 variant="outlined"
                 name="email"
+                aria-labelledby="email"
               />
-              <FormControl fullWidth aria-labelledby='password' variant="outlined">
-                <InputLabel htmlFor="outlined-adornment-password" aria-labelledby="password" id="password">
+              <FormControl
+                fullWidth
+                aria-labelledby="password"
+                variant="outlined"
+              >
+                <InputLabel
+                  aria-label="password"
+                  htmlFor="outlined-adornment-password"
+                  aria-labelledby="password"
+                  id="password"
+                >
                   Password
                 </InputLabel>
                 <OutlinedInput
+                  aria-label="password"
                   id="standard-adornment-password"
                   name="password"
                   aria-labelledby="password"
