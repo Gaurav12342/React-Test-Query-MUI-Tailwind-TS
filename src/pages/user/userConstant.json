@@ -1,0 +1,25 @@
+{
+    "CURRENT_USER": "Current User",
+    "ALL_USER": "All User",
+    "CONFIRM": "Confirm",
+    "CANCEL": "Cancel",
+    "UPDATE": "Update",
+    "CREATE": "Create",
+    "TOOLKIT": "Toolkit",
+    "STATE": "State",
+    "CONTEXT": "Context",
+    "LOGOUT": "Logout",
+    "SIGN_IN": "Sign In",
+    "SIGN_UP": "Sign Up",
+    "REGISTRATION": "Registration",
+    "LOGIN": "Login",
+    "USER": "USER",
+    "ADD": "ADD",
+    "EDIT": "EDIT",
+    "TABLE_COLUMN": {
+        "NAME": "name",
+        "EMAIL": "Email",
+        "LOCATION": "Location",
+        "ACTION": "Action"
+    }
+}

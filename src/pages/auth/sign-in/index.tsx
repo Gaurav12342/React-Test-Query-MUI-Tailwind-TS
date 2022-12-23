@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { IForm } from "./types";
 import axios from "axios";
 import { useMutation } from "react-query";
-import { LOGIN_ROUTE } from "resources";
+import comman from "resources/comman.json";
 import { routes } from "router/constants";
 
 const Login: FC = () => {
@@ -20,10 +20,11 @@ const Login: FC = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleAddUser = (obj: IForm) => {
-    return axios.post(LOGIN_ROUTE, obj);
+    return axios.post(comman?.LOGIN_ROUTE, obj);
   };
   const handleLoginSuccess = (res: any) => {
     if (res?.status === 200) {
+      localStorage.setItem("user", JSON.stringify(res?.data?.data));
       navigate(routes.home_page.path);
     }
   };
@@ -50,7 +51,6 @@ const Login: FC = () => {
       setUserData({ ...userData, isPassword: true });
     } else {
       mutate(userData);
-      console.log("Dhanna pani", userData);
     }
   };
 
