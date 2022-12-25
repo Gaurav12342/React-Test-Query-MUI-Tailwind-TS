@@ -16,7 +16,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { useNavigate } from "react-router-dom";
 
 const Header: FC = () => {
-  const navigate = useNavigate();
+  const navigate: any = useNavigate();
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -32,7 +32,7 @@ const Header: FC = () => {
   };
 
   return (
-    <div>
+    <div data-testid="header-root">
       <AppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>

@@ -47,7 +47,7 @@ describe("Registration test cases", () => {
     expect(signUpButtonElement).toBeInTheDocument();
   });
 
-  test("Registration form initial value", () => {
+  test.skip("Registration form initial value", () => {
     render(<Registration />);
     const usernameInputElement = screen.getByRole("textbox", {
       name: "username",
