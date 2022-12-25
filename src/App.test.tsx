@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import App from "./App";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 // 1- Mocking the hook using jest.fn
 const mockedUsedNavigate = jest.fn();
@@ -16,23 +16,9 @@ jest.mock("react-router-dom", () => ({
 
 describe("Render app component", () => {
   it("has a button and does navigate to other component", async () => {
-    render(
-      <Router>
-        <App />
-      </Router>
-    );
+    render(<App />);
 
     const linkElement = await screen.getByTestId("app");
     expect(linkElement).toBeInTheDocument();
   });
 });
-
-// test("render app component", async () => {
-//   render(
-//     <Router>
-//       <App />,
-//     </Router>
-//   );
-//   const linkElement = await screen.getByTestId("app");
-//   expect(linkElement).toBeInTheDocument();
-// });
