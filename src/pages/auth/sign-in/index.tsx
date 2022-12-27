@@ -25,7 +25,7 @@ const Login: FC = () => {
   const handleLoginSuccess = (res: any) => {
     if (res?.status === 200) {
       localStorage.setItem("user", JSON.stringify(res?.data?.data));
-      navigate(routes.home_page.path);
+      navigate(routes.privateRoute.dashboard.path);
     }
   };
 
