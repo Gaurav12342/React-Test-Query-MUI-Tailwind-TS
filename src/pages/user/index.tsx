@@ -39,13 +39,12 @@ const a11yProps = (index: number) => {
 const Home: FC = () => {
   const [value, setValue] = useState<number>(0);
   const loggedUser = JSON.parse(isLogin);
-  console.log("loggedUser =>",loggedUser)
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box data-testid="root" sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
@@ -57,10 +56,10 @@ const Home: FC = () => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <h4>Current User</h4>
+        <h4>{comman?.CURRENT_USER}</h4>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <h4>All User</h4>
+        <h4>{comman?.ALL_USER}</h4>
       </TabPanel>
     </Box>
   );
