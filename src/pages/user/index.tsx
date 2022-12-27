@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import { Tabs, Box, Tab, Typography } from "@mui/material";
 import comman from "./userConstant.json";
 import { isLogin } from "utils/auth";
+import UserListing from "./UserListing";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -59,7 +60,8 @@ const Home: FC = () => {
         <h4>{comman?.CURRENT_USER}</h4>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <h4>{comman?.ALL_USER}</h4>
+        <UserListing />
+        {/* <h4>{comman?.ALL_USER}</h4> */}
       </TabPanel>
     </Box>
   );
