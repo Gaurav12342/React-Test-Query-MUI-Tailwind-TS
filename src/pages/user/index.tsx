@@ -39,8 +39,7 @@ const a11yProps = (index: number) => {
 
 const Home: FC = () => {
   const [value, setValue] = useState<number>(0);
-  const loggedUser = JSON.parse(isLogin);
-
+  
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };

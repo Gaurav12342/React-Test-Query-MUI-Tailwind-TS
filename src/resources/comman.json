@@ -1,4 +1,3 @@
 {
-  "LOGIN_ROUTE": "http://restapi.adequateshop.com/api/authaccount/login",
-  "GET_USERS": "users"
+  "LOGIN_ROUTE": "http://restapi.adequateshop.com/api/authaccount/login"
 }
