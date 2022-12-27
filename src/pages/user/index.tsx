@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { Tabs, Box, Tab, Typography } from "@mui/material";
 import comman from "./userConstant.json";
 import { isLogin } from "utils/auth";

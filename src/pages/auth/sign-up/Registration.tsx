@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import {
   IconButton,
   InputAdornment,
@@ -9,21 +9,13 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import deskImage from "assets/images/image-desktop.jpg";
-import { useNavigate } from "react-router-dom";
-import { routes } from "router/constants";
 
 const Registration: FC<any> = ({
   showPassword,
-  setShowPassword,
   handleClickShowPassword,
   handleNavigate,
 }) => {
-  const handleMouseDownPassword = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    event.preventDefault();
-  };
-
+  
   return (
     <>
       <div className="max-h-full max-w-md md:max-w-full">
