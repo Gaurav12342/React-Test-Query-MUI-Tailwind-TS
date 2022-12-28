@@ -11,20 +11,35 @@ import {
   IconButton,
   Button,
   Grid,
+  Pagination,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import common from "./userConstant.json";
 import axios from "utils/AxiosInterceptor";
 import { useQuery } from "react-query";
+import { FC, useState } from "react";
 
-const UserListing = () => {
-  const fetchUsers = () => {
-    const url = `${common?.GET_USERS}`;
+const UserListing: FC = () => {
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const fetchUsers = (pageNum: number) => {
+    const url = pageNum
+      ? `${common?.GET_USERS}?page=${pageNum}`
+      : `${common?.GET_USERS}`;
     return axios.get(url);
   };
 
-  const { isLoading, data } = useQuery("Get-User", fetchUsers);
+  const { isLoading, data } = useQuery(["Get-User", pageNumber], () =>
+    fetchUsers(pageNumber)
+  );
+
+  const handlePaginationChange = (
+    event: React.ChangeEvent<unknown>,
+    page: number
+  ) => {
+    setPageNumber(page);
+  };
 
   return (
     <div>
@@ -91,6 +106,17 @@ const UserListing = () => {
               )}
             </Table>
           </TableContainer>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Pagination
+            showFirstButton
+            showLastButton
+            count={data?.data?.total_pages}
+            onChange={handlePaginationChange}
+            variant="outlined"
+            color="primary"
+          />
         </Grid>
       </Grid>
     </div>
