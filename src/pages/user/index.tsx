@@ -38,7 +38,7 @@ const a11yProps = (index: number) => {
 
 const Home: FC = () => {
   const [value, setValue] = useState<number>(0);
-  
+
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
@@ -50,7 +50,7 @@ const Home: FC = () => {
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label={comman.CURRENT_USER} {...a11yProps(0)} />
+          <Tab  label={comman.CURRENT_USER} {...a11yProps(0)} />
           <Tab label={comman.ALL_USER} {...a11yProps(1)} />
         </Tabs>
       </Box>
@@ -58,8 +58,9 @@ const Home: FC = () => {
         <h4>{comman?.CURRENT_USER}</h4>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <UserListing />
-        {/* <h4>{comman?.ALL_USER}</h4> */}
+        <div data-testid="user-list">
+          <UserListing />
+        </div>
       </TabPanel>
     </Box>
   );

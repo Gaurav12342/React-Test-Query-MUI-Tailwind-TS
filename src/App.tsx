@@ -7,7 +7,7 @@ const App: FC = () => {
   const queryClient = new QueryClient();
   return (
     <div data-testid="app">
-      <QueryClientProvider client={queryClient}>
+      <QueryClientProvider contextSharing={true} client={queryClient}>
         <Router />
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
       </QueryClientProvider>

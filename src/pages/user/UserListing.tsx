@@ -19,10 +19,14 @@ import common from "./userConstant.json";
 import axios from "utils/AxiosInterceptor";
 import { useQuery } from "react-query";
 import { FC, useState } from "react";
+import { IRowData } from "./interface.types";
 
 const UserListing: FC = () => {
   const [pageNumber, setPageNumber] = useState(1);
+  const [rowData, setRowData] = useState<IRowData>({});
 
+  console.log("rowData =>", rowData);
+  
   const fetchUsers = (pageNum: number) => {
     const url = pageNum
       ? `${common?.GET_USERS}?page=${pageNum}`
@@ -84,6 +88,7 @@ const UserListing: FC = () => {
                         sx={{
                           "&:last-child td, &:last-child th": { border: 0 },
                         }}
+                        onClick={() => setRowData(row)}
                       >
                         <TableCell component="th" scope="row">
                           {row.id}
