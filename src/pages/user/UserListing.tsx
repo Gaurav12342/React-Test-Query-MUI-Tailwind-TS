@@ -21,22 +21,24 @@ import { useQuery } from "react-query";
 import { FC, useState } from "react";
 import { IRowData } from "./interface.types";
 
+export const fetchUsers = (pageNum: number) => {
+  const url = pageNum
+    ? `${common?.GET_USERS}?page=${pageNum}`
+    : `${common?.GET_USERS}`;
+  return axios.get(url);
+};
+
 const UserListing: FC = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [rowData, setRowData] = useState<IRowData>({});
 
-  console.log("rowData =>", rowData);
   
-  const fetchUsers = (pageNum: number) => {
-    const url = pageNum
-      ? `${common?.GET_USERS}?page=${pageNum}`
-      : `${common?.GET_USERS}`;
-    return axios.get(url);
-  };
-
   const { isLoading, data } = useQuery(["Get-User", pageNumber], () =>
-    fetchUsers(pageNumber)
+  fetchUsers(pageNumber)
   );
+  
+  console.log("rowData =>", rowData);
+  console.log("data =>", data);
 
   const handlePaginationChange = (
     event: React.ChangeEvent<unknown>,
