@@ -17,9 +17,10 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import common from "./userConstant.json";
 import axios from "utils/AxiosInterceptor";
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { FC, useState } from "react";
 import { IRowData } from "./interface.types";
+import UserDialoag from "components/UserDialog";
 
 export const fetchUsers = (pageNum: number) => {
   const url = pageNum
@@ -32,14 +33,28 @@ const UserListing: FC = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [rowData, setRowData] = useState<IRowData>({});
   const [open, setOpen] = useState(false);
-  
+
   const { isLoading, data } = useQuery(["Get-User", pageNumber], () =>
-  fetchUsers(pageNumber)
+    fetchUsers(pageNumber)
   );
-  
-  console.log("rowData =>", rowData);
-  console.log("data =>", data);
-  console.log("open =>", open);
+
+  const deleteUser = (id: string) => {
+    return axios.delete(`${common?.GET_USERS}/${id}`);
+  };
+
+  const handleDeleteSucces = () => {
+    // delete success
+  };
+
+  const handleDeleteError = () => {
+    // delete error
+  };
+
+  const { isLoading: deleteLoading, mutate } = useMutation(
+    "delete-user",
+    deleteUser,
+    { onSuccess: handleDeleteSucces, onError: handleDeleteError }
+  );
 
   const handlePaginationChange = (
     event: React.ChangeEvent<unknown>,
@@ -51,7 +66,16 @@ const UserListing: FC = () => {
   const handleClickOpen = (row: IRowData) => {
     setOpen(true);
     setRowData(row);
-};
+  };
+
+  const handleCancel = () => {
+    setOpen(false);
+  };
+
+  const handleConfirm = () => {
+    const userId: any = rowData?.id;
+    mutate(userId);
+  };
 
   return (
     <div>
@@ -105,7 +129,10 @@ const UserListing: FC = () => {
                         <TableCell align="left">{row.email}</TableCell>
                         <TableCell align="left">{row.location}</TableCell>
                         <TableCell align="center">
-                          <IconButton aria-label="Delete"  onClick={() => handleClickOpen(row)}>
+                          <IconButton
+                            aria-label="Delete"
+                            onClick={() => handleClickOpen(row)}
+                          >
                             <DeleteIcon />
                           </IconButton>
                           <IconButton aria-label="Edit">
@@ -131,7 +158,16 @@ const UserListing: FC = () => {
             color="primary"
           />
         </Grid>
-        
+
+        {open && (
+          <UserDialoag
+            deleteUserLoader={deleteLoading}
+            handleConfirm={handleConfirm}
+            handleCancel={handleCancel}
+            open={open}
+            rowData={rowData}
+          />
+        )}
       </Grid>
     </div>
   );
