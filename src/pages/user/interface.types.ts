@@ -36,3 +36,6 @@ export interface ICreateUser {
   handleSubmit?: () => void;
   isLoading?: boolean;
 }
+export interface ISuccessData {
+  status?: number
+}

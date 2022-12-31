@@ -5,6 +5,7 @@ import Login from "../pages/auth/sign-in";
 import Registration from "../pages/auth/sign-up";
 import { routes } from "./constants";
 import PrivateOutlet from "./PrivateRoute";
+import CreateUser from "pages/user/CreateUser";
 
 const Router: FC = () => {
   return (
@@ -17,6 +18,10 @@ const Router: FC = () => {
             <Route
               path={routes.privateRoute.dashboard.path}
               element={<Home />}
+            />
+            <Route
+              path={routes.privateRoute.add_user.path}
+              element={<CreateUser />}
             />
           </Route>
         </Routes>
