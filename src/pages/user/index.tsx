@@ -50,16 +50,16 @@ const Home: FC = () => {
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab  label={comman.CURRENT_USER} {...a11yProps(0)} />
+          <Tab label={comman.CURRENT_USER} {...a11yProps(0)} />
           <Tab label={comman.ALL_USER} {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <h4>{comman?.CURRENT_USER}</h4>
+        <></>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <div data-testid="user-list">
-          <UserListing />
+          <UserListing selectTabValue={value} />
         </div>
       </TabPanel>
     </Box>

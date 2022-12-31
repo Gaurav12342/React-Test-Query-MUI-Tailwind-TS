@@ -18,9 +18,11 @@ import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutl
 import common from "./userConstant.json";
 import axios from "utils/AxiosInterceptor";
 import { useMutation, useQuery } from "react-query";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { IRowData } from "./interface.types";
 import UserDialoag from "components/UserDialog";
+import { useNavigate } from "react-router-dom";
+import { routes } from "router/constants";
 
 export const fetchUsers = (pageNum: number) => {
   const url = pageNum
@@ -29,15 +31,21 @@ export const fetchUsers = (pageNum: number) => {
   return axios.get(url);
 };
 
-const UserListing: FC = () => {
+const UserListing: FC<any> = (props) => {
+  const { selectTabValue } = props;
   const [pageNumber, setPageNumber] = useState(1);
   const [rowData, setRowData] = useState<IRowData>({});
   const [open, setOpen] = useState(false);
 
-  const { isLoading, data } = useQuery(["Get-User", pageNumber], () =>
+  const navigate = useNavigate();
+  const { isLoading, data, refetch } = useQuery(["Get-User", pageNumber], () =>
     fetchUsers(pageNumber)
   );
 
+  useEffect(() => {
+    refetch();
+  }, [selectTabValue]);
+  
   const deleteUser = (id: string) => {
     return axios.delete(`${common?.GET_USERS}/${id}`);
   };
@@ -77,11 +85,18 @@ const UserListing: FC = () => {
     mutate(userId);
   };
 
+  const handleAddUser = () => {
+    navigate(`/${routes.privateRoute.add_user.path}`);
+  };
+
   return (
     <div>
       <Grid container sx={{ display: "flex", flexDirection: "column" }}>
         <Grid item xs={12}>
-          <Button variant="contained">{`${common.ADD} new ${common.USER}`}</Button>
+          <Button
+            variant="contained"
+            onClick={handleAddUser}
+          >{`${common.ADD} new ${common.USER}`}</Button>
         </Grid>
 
         <Grid item xs={12}>

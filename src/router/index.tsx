@@ -14,7 +14,10 @@ const Router: FC = () => {
           <Route path={routes.sign_in.path} element={<Login />} />
           <Route path={routes.sign_up.path} element={<Registration />} />
           <Route path={routes.privateRoute.path} element={<PrivateOutlet />}>
-          <Route path={routes.privateRoute.dashboard.path} element={<Home />} />
+            <Route
+              path={routes.privateRoute.dashboard.path}
+              element={<Home />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

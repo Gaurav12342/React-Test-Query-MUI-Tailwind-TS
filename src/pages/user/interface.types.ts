@@ -23,3 +23,16 @@ export interface ConfirmPopupProps {
   handleCancel: () => void;
   deleteUserLoader?: boolean;
 }
+
+export interface IForm {
+  id?: string;
+  name: string;
+  email: string;
+  location: string;
+}
+export interface ICreateUser {
+  setUserData?: any;
+  userData?: IForm;
+  handleSubmit?: () => void;
+  isLoading?: boolean;
+}

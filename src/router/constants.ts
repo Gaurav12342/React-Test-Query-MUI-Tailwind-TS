@@ -4,5 +4,6 @@ export const routes = {
   privateRoute: {
     path: "/*",
     dashboard: { path: "dashboard" },
+    add_user: { path: "add-user" },
   },
 };
