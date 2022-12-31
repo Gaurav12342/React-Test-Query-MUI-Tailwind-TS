@@ -23,6 +23,10 @@ const Router: FC = () => {
               path={routes.privateRoute.add_user.path}
               element={<CreateUser />}
             />
+            <Route
+              path={`${routes.privateRoute.add_user.path}/:id`}
+              element={<CreateUser />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

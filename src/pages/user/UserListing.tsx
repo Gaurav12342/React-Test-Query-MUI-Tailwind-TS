@@ -19,7 +19,7 @@ import common from "./userConstant.json";
 import axios from "utils/AxiosInterceptor";
 import { useMutation, useQuery } from "react-query";
 import { FC, useEffect, useState } from "react";
-import { IRowData } from "./interface.types";
+import { ICurrentUser, IRowData } from "./interface.types";
 import UserDialoag from "components/UserDialog";
 import { useNavigate } from "react-router-dom";
 import { routes } from "router/constants";
@@ -45,7 +45,7 @@ const UserListing: FC<any> = (props) => {
   useEffect(() => {
     refetch();
   }, [selectTabValue]);
-  
+
   const deleteUser = (id: string) => {
     return axios.delete(`${common?.GET_USERS}/${id}`);
   };
@@ -87,6 +87,10 @@ const UserListing: FC<any> = (props) => {
 
   const handleAddUser = () => {
     navigate(`/${routes.privateRoute.add_user.path}`);
+  };
+
+  const handleEditUser = (row: ICurrentUser) => {
+    navigate(`/${routes.privateRoute.add_user.path}/${row?.id}`);
   };
 
   return (
@@ -150,7 +154,12 @@ const UserListing: FC<any> = (props) => {
                           >
                             <DeleteIcon />
                           </IconButton>
-                          <IconButton aria-label="Edit">
+                          <IconButton
+                            aria-label="Edit"
+                            onClick={() => {
+                              handleEditUser(row);
+                            }}
+                          >
                             <ModeEditOutlineOutlinedIcon />
                           </IconButton>
                         </TableCell>

@@ -39,3 +39,15 @@ export interface ICreateUser {
 export interface ISuccessData {
   status?: number
 }
+
+export interface IGetUserSuccessData {
+  status: number,
+  data?: {
+      createdat?: string,
+      email?: string,
+      id?: string,
+      location?: string,
+      name?: string,
+      profilepicture?: string,
+  }
+}
