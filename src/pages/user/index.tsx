@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import { Tabs, Box, Tab, Typography } from "@mui/material";
 import comman from "./userConstant.json";
 import UserListing from "./UserListing";
+import CurrentUser from "./CurrentUser";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -55,7 +56,7 @@ const Home: FC = () => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <></>
+      <CurrentUser />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <div data-testid="user-list">
