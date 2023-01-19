@@ -14,9 +14,11 @@ import {
 } from "@mui/material";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useNavigate } from "react-router-dom";
+import { useCurrentUser } from "hooks/useCurrentUser";
 
 const Header: FC = () => {
   const navigate: any = useNavigate();
+  const { name, profilepicture } = useCurrentUser();
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -41,7 +43,7 @@ const Header: FC = () => {
               variant="h6"
               noWrap
               component="a"
-              href="/"
+              onClick={() => navigate("dashboard")}
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
@@ -52,7 +54,7 @@ const Header: FC = () => {
                 textDecoration: "none",
               }}
             >
-              {"Test User"}
+              {name}
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -71,6 +73,7 @@ const Header: FC = () => {
                   <Avatar
                     alt="Gaurav Sali"
                     src={
+                      profilepicture ||
                       "http://restapi.adequateshop.com/Media//Images/userimageicon.png"
                     }
                   />

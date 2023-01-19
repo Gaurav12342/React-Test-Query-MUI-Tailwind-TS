@@ -56,7 +56,7 @@ const Home: FC = () => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-      <CurrentUser />
+      <CurrentUser selectTabValue={value}/>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <div data-testid="user-list">

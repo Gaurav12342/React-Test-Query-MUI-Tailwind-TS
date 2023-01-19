@@ -66,6 +66,7 @@ const CreateUser: FC = () => {
     onSuccess: getUserOnSucess,
   });
   
+  console.log("param =>",!!params?.id)
   return (
     <div>
       <CreateUserComp
