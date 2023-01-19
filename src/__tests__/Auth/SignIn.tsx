@@ -1,6 +1,6 @@
 import { screen, render, fireEvent } from "@testing-library/react";
 import user from "@testing-library/user-event";
-import Login from "./Login";
+import Login from "pages/auth/sign-in/SignIn";
 
 describe("Login Component", () => {
   test("login form image", () => {

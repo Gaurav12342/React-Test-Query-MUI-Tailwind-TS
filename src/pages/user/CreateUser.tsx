@@ -3,7 +3,7 @@ import CreateUserComp from "components/CreateUser";
 import { useNavigate, useParams } from "react-router-dom";
 import { IForm, IGetUserSuccessData, ISuccessData } from "./interface.types";
 import axios from "utils/AxiosInterceptor";
-import common from "pages/user/userConstant.json";
+import common from "resources/userConstant.json";
 import { useMutation, useQuery } from "react-query";
 import { routes } from "router/constants";
 

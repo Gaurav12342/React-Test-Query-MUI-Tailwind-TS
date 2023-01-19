@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { TextField, Paper, Grid, Typography, Button } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import comman from 'pages/user/userConstant.json';
+import comman from 'resources/userConstant.json';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { ICreateUser } from 'pages/user/interface.types';
 

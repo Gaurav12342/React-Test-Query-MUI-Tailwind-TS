@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { routes } from "router/constants";
-import RegistrationComponent from "./Registration";
+import RegistrationComponent from "./SignUp";
 
 const Registration: FC = () => {
   const navigate: any = useNavigate();

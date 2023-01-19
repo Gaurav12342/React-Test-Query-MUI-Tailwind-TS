@@ -1,7 +1,7 @@
 import { isLogin } from "utils/auth";
 import { useQuery } from "react-query";
 import axios from "utils/AxiosInterceptor";
-import common from "pages/user/userConstant.json";
+import common from "resources/userConstant.json";
 
 export const useCurrentUser = () => {
   const loggedUser = JSON.parse(isLogin);

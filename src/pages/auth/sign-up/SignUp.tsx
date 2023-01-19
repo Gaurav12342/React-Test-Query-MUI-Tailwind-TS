@@ -10,7 +10,7 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import deskImage from "assets/images/image-desktop.jpg";
 
-const Registration: FC<any> = ({
+const SignUp: FC<any> = ({
   showPassword,
   handleClickShowPassword,
   handleNavigate,
@@ -105,4 +105,4 @@ const Registration: FC<any> = ({
   );
 };
 
-export default Registration;
+export default SignUp;

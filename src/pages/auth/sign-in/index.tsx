@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import LoginComponent from "./Login";
+import LoginComponent from "./SignIn";
 import { useNavigate } from "react-router-dom";
 import { IForm } from "./types";
 import axios from "axios";

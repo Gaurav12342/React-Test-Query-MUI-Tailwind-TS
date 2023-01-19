@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
-import comman from "pages/user/userConstant.json";
+import comman from "resources/userConstant.json";
 import { ConfirmPopupProps } from 'pages/user/interface.types';
 
 const UserDialoag: FC<ConfirmPopupProps> = (props) => {

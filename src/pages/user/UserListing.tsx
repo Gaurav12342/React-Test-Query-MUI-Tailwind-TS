@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
-import common from "./userConstant.json";
+import common from "resources/userConstant.json";
 import axios from "utils/AxiosInterceptor";
 import { useMutation, useQuery } from "react-query";
 import { FC, useEffect, useState } from "react";

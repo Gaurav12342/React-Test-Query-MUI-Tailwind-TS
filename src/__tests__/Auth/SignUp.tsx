@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Registration from "./Registration";
-import user from "@testing-library/user-event";
+import Registration from "pages/auth/sign-up/SignUp";
 
 describe("Registration test cases", () => {
   test("Registration form image", () => {

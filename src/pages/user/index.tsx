@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { Tabs, Box, Tab, Typography } from "@mui/material";
-import comman from "./userConstant.json";
+import comman from "resources/userConstant.json";
 import UserListing from "./UserListing";
 import CurrentUser from "./CurrentUser";
 

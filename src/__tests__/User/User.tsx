@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import user from "@testing-library/user-event";
-import Home from ".";
-import comman from "./userConstant.json";
+import Home from "pages/user";
+import comman from "resources/userConstant.json";
 
 describe("Test user component", () => {
   test("test root element", () => {

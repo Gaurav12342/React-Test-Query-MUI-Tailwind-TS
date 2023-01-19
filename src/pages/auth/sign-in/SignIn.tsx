@@ -13,7 +13,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import deskImage from "assets/images/image-desktop.jpg";
 import { ILogin } from "./types";
 
-const Login: FC<ILogin> = ({
+const SignIn: FC<ILogin> = ({
   showPassword,
   handleChange,
   handleSubmit,
@@ -134,4 +134,4 @@ const Login: FC<ILogin> = ({
   );
 };
 
-export default Login;
+export default SignIn;
