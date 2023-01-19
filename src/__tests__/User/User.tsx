@@ -3,6 +3,36 @@ import user from "@testing-library/user-event";
 import Home from "pages/user";
 import comman from "resources/userConstant.json";
 
+jest.mock("react-query", () => ({
+  useQuery: () => ({
+    isLoading: false,
+    error: {},
+    data: [],
+    refetch: () => {},
+  }),
+}));
+
+// jest.mock("react-query", () => ({
+//   useMutation: () => ({
+//     isLoading: false,
+//     error: {},
+//     data: [],
+//     mutate: () => {},
+//   }),
+// }));
+
+// 1- Mocking the hook using jest.fn
+const mockedUsedNavigate = jest.fn();
+
+// 2- Mock the library
+jest.mock("react-router-dom", () => ({
+  // 3- Import non-mocked library and use other functionalities and hooks
+  ...(jest.requireActual("react-router-dom") as any),
+
+  // 4- Mock the required hook
+  useNavigate: () => mockedUsedNavigate,
+}));
+
 describe("Test user component", () => {
   test("test root element", () => {
     render(<Home />);
@@ -10,7 +40,7 @@ describe("Test user component", () => {
     expect(rootElement).toBeInTheDocument();
   });
 
-  test.skip("active first tab when click", async () => {
+  test("active first tab when click", async () => {
     render(<Home />);
     const tab1 = screen.getByRole("tab", {
       name: comman?.CURRENT_USER,

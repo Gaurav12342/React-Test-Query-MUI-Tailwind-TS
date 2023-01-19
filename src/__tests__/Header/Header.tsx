@@ -7,6 +7,15 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockedUsedNavigate,
 }));
 
+jest.mock("react-query", () => ({
+  useQuery: () => ({
+    isLoading: false,
+    error: {},
+    data: [],
+    refetch: () => {},
+  }),
+}));
+
 describe("Header component", () => {
   test("header root", () => {
     render(<Header />);
