@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import CreateUserComp from "components/CreateUser";
 import { useNavigate, useParams } from "react-router-dom";
-import { IForm, IGetUserSuccessData, ISuccessData } from "./interface.types";
+import { IForm, IGetUserSuccessData, ISuccessData } from "./type";
 import axios from "utils/AxiosInterceptor";
 import common from "resources/userConstant.json";
 import { useMutation, useQuery } from "react-query";

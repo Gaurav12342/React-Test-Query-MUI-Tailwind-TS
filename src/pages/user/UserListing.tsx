@@ -19,7 +19,7 @@ import common from "resources/userConstant.json";
 import axios from "utils/AxiosInterceptor";
 import { useMutation, useQuery } from "react-query";
 import { FC, useEffect, useState } from "react";
-import { ICurrentUser, IRowData } from "./interface.types";
+import { ICurrentUser, IRowData } from "./type";
 import UserDialoag from "components/UserDialog";
 import { useNavigate } from "react-router-dom";
 import { routes } from "router/constants";
