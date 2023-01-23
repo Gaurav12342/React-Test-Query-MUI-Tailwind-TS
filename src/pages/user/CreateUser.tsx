@@ -9,7 +9,7 @@ import { routes } from "router/constants";
 
 const CreateUser: FC = () => {
   const navigate = useNavigate();
-  const params: any = useParams();
+  const params = useParams();
 
   const [userData, setUserData] = useState<IForm>({
     id: "0",
@@ -43,11 +43,10 @@ const CreateUser: FC = () => {
       email: userData?.email || "",
       location: userData?.location || "",
     };
-    console.log("Obj =>", obj);
     mutate(obj);
   };
 
-  const fetchuserById = (id: string) => {
+  const fetchuserById = (id?: string) => {
     return axios.get(`${common.GET_USERS}/${id}`);
   };
 

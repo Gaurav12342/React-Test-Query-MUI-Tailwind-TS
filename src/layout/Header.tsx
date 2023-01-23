@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { useCurrentUser } from "hooks/useCurrentUser";
 
 const Header: FC = () => {
-  const navigate: any = useNavigate();
+  const navigate = useNavigate();
   const { name, profilepicture } = useCurrentUser();
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {

@@ -4,7 +4,7 @@ import { routes } from "router/constants";
 import RegistrationComponent from "./SignUp";
 
 const Registration: FC = () => {
-  const navigate: any = useNavigate();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const handleClickShowPassword = () => {
