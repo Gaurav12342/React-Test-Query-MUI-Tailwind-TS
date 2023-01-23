@@ -15,3 +15,16 @@ export interface ILogin {
     isLoading?: boolean;
     userData?: IForm;
 }
+
+export interface ILoginSuccessProps {
+    status?: number;
+    data?: {
+      code?: number;
+      data?: {
+        Email: string;
+        Id: number;
+        Name: string;
+        Token: string;
+      };
+    };
+  }

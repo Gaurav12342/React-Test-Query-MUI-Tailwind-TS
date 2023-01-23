@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import LoginComponent from "./SignIn";
 import { useNavigate } from "react-router-dom";
-import { IForm } from "./types";
+import { IForm, ILoginSuccessProps } from "./types";
 import axios from "axios";
 import { useMutation } from "react-query";
 import comman from "resources/comman.json";
@@ -22,7 +22,7 @@ const Login: FC = () => {
   const handleAddUser = (obj: IForm) => {
     return axios.post(comman?.LOGIN_ROUTE, obj);
   };
-  const handleLoginSuccess = (res: any) => {
+  const handleLoginSuccess = (res: ILoginSuccessProps) => {
     if (res?.status === 200) {
       localStorage.setItem("user", JSON.stringify(res?.data?.data));
       navigate(routes.privateRoute.dashboard.path);

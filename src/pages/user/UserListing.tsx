@@ -19,7 +19,7 @@ import common from "resources/userConstant.json";
 import axios from "utils/AxiosInterceptor";
 import { useMutation, useQuery } from "react-query";
 import { FC, useEffect, useState } from "react";
-import { ICurrentUser, IRowData } from "./type";
+import { ICurrentUser, ICurrentUserComp, IRowData } from "./type";
 import UserDialoag from "components/UserDialog";
 import { useNavigate } from "react-router-dom";
 import { routes } from "router/constants";
@@ -31,7 +31,7 @@ export const fetchUsers = (pageNum: number) => {
   return axios.get(url);
 };
 
-const UserListing: FC<any> = (props) => {
+const UserListing: FC<ICurrentUserComp> = (props) => {
   const { selectTabValue } = props;
   const [pageNumber, setPageNumber] = useState(1);
   const [rowData, setRowData] = useState<IRowData>({});

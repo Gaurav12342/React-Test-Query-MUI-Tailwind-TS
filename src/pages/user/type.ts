@@ -37,17 +37,21 @@ export interface ICreateUser {
   isLoading?: boolean;
 }
 export interface ISuccessData {
-  status?: number
+  status?: number;
 }
 
 export interface IGetUserSuccessData {
-  status: number,
+  status: number;
   data?: {
-      createdat?: string,
-      email?: string,
-      id?: string,
-      location?: string,
-      name?: string,
-      profilepicture?: string,
-  }
+    createdat?: string;
+    email?: string;
+    id?: string;
+    location?: string;
+    name?: string;
+    profilepicture?: string;
+  };
+}
+
+export interface ICurrentUserComp {
+  selectTabValue?: any;
 }

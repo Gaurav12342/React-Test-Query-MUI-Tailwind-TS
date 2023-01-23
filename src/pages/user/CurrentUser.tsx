@@ -12,10 +12,9 @@ import {
   Skeleton,
   Box,
 } from "@mui/material";
+import { ICurrentUserComp } from "./type";
 
-const CurrentUser: FC<any> = (props) => {
-  const { selectTabValue } = props;
-
+const CurrentUser: FC<ICurrentUserComp> = ({ selectTabValue }) => {
   const loggedUser = JSON.parse(isLogin);
 
   const fetchCurrentUser = () => {

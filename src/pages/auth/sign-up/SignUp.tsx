@@ -9,13 +9,13 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import deskImage from "assets/images/image-desktop.jpg";
+import { ISignUpProps } from "./types";
 
-const SignUp: FC<any> = ({
+const SignUp: FC<ISignUpProps> = ({
   showPassword,
   handleClickShowPassword,
   handleNavigate,
 }) => {
-  
   return (
     <>
       <div className="max-h-full max-w-md md:max-w-full">
